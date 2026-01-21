@@ -1,0 +1,200 @@
+/* =========================================================
+   RESET
+   ========================================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* =========================================================
+   BASE BODY
+   ========================================================= */
+body {
+    min-height: 100vh;
+    background: #ffffff;
+    font-family: "Segoe UI", Tahoma, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #0f172a;
+    position: relative;
+    overflow: hidden;
+}
+
+/* =========================================================
+   WAVES (COMMON)
+   ========================================================= */
+body::before,
+body::after {
+    content: "";
+    position: absolute;
+    left: -50%;
+    width: 200%;
+    height: 45%;
+    background-repeat: repeat-x;
+    background-size: 1200px 100%;
+    opacity: 0.7;
+    z-index: 0;
+}
+
+/* =========================================================
+   CALM WAVES – INDEX PAGE
+   ========================================================= */
+body.calm::before {
+    bottom: 0;
+    background-image: radial-gradient(circle at 50% 0%, #38bdf8 40%, transparent 41%);
+    animation: waveSlow 16s linear infinite;
+}
+
+body.calm::after {
+    bottom: 10%;
+    background-image: radial-gradient(circle at 50% 0%, #7dd3fc 40%, transparent 41%);
+    animation: waveSlowReverse 22s linear infinite;
+}
+
+/* =========================================================
+   GOOD WAVES – LEGIT URL
+   ========================================================= */
+body.good::before {
+    bottom: 0;
+    background-image: radial-gradient(circle at 50% 0%, #22c55e 40%, transparent 41%);
+    animation: waveSmooth 14s linear infinite;
+}
+
+body.good::after {
+    bottom: 12%;
+    background-image: radial-gradient(circle at 50% 0%, #86efac 40%, transparent 41%);
+    animation: waveSmoothReverse 20s linear infinite;
+}
+
+/* =========================================================
+   BAD WAVES – PHISHING URL
+   ========================================================= */
+body.bad::before {
+    bottom: 0;
+    background-image: radial-gradient(circle at 50% 0%, #ef4444 40%, transparent 41%);
+    animation: waveAggressive 8s linear infinite;
+}
+
+body.bad::after {
+    bottom: 15%;
+    background-image: radial-gradient(circle at 50% 0%, #fb7185 40%, transparent 41%);
+    animation: waveAggressiveReverse 12s linear infinite;
+}
+
+/* =========================================================
+   WAVE ANIMATIONS
+   ========================================================= */
+@keyframes waveSlow {
+    from { transform: translateX(0); }
+    to { transform: translateX(-500px); }
+}
+
+@keyframes waveSlowReverse {
+    from { transform: translateX(0); }
+    to { transform: translateX(500px); }
+}
+
+@keyframes waveSmooth {
+    from { transform: translateX(0); }
+    to { transform: translateX(-700px); }
+}
+
+@keyframes waveSmoothReverse {
+    from { transform: translateX(0); }
+    to { transform: translateX(700px); }
+}
+
+@keyframes waveAggressive {
+    from { transform: translateX(0); }
+    to { transform: translateX(-1000px); }
+}
+
+@keyframes waveAggressiveReverse {
+    from { transform: translateX(0); }
+    to { transform: translateX(1000px); }
+}
+
+/* =========================================================
+   CARD
+   ========================================================= */
+.card {
+    width: 520px;
+    background: #ffffff;
+    padding: 40px 38px;
+    border-radius: 18px;
+    text-align: center;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.18);
+    border-top: 8px solid #38bdf8;
+    position: relative;
+    z-index: 1;
+    animation: fadeUp 0.7s ease;
+}
+
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* =========================================================
+   TEXT
+   ========================================================= */
+.card h2 {
+    font-size: 26px;
+    margin-bottom: 10px;
+}
+
+body.good .card h2 { color: #16a34a; }
+body.bad .card h2 { color: #dc2626; }
+body.calm .card h2 { color: #0284c7; }
+
+.card p {
+    font-size: 15px;
+    color: #475569;
+    margin-bottom: 22px;
+}
+
+/* =========================================================
+   INPUT
+   ========================================================= */
+input {
+    width: 100%;
+    padding: 14px 16px;
+    border-radius: 10px;
+    border: 1px solid #cbd5e1;
+    font-size: 15px;
+    outline: none;
+}
+
+input:focus {
+    border-color: #38bdf8;
+}
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+button,
+.btn {
+    width: 100%;
+    margin-top: 22px;
+    padding: 14px;
+    border-radius: 14px;
+    border: none;
+    color: #ffffff;
+    text-decoration: none;
+    letter-spacing: 0.4px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.25s ease, box-shadow 0.3s ease;
+}
+
+body.calm .btn { background: linear-gradient(135deg, #38bdf8, #0ea5e9); }
+body.good .btn { background: linear-gradient(135deg, #22c55e, #16a34a); }
+body.bad .btn { background: linear-gradient(135deg, #ef4444, #dc2626); }
+
+.btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+}

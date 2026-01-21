@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Detection Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body class="{% if status == 'safe' %}good{% else %}bad{% endif %}">
+
+<div class="card">
+
+    {% if status == "safe" %}
+        <h2>✅ Website is Legitimate</h2>
+        <p>This URL has been identified as safe and trustworthy.</p>
+
+        <ul>
+            <li>🌱 Secure websites help you browse with confidence and peace of mind.</li>
+            <li>🔐 Trusted platforms protect user privacy and data integrity.</li>
+            <li>🧠 Staying alert online reflects strong digital awareness.</li>
+            <li>📘 Verified sources reduce risk and improve decision-making.</li>
+            <li>🚀 Safe browsing leads to a smooth and productive online experience.</li>
+            <li>✨ Smart users always verify before they proceed.</li>
+        </ul>
+
+        <p class="note">
+            ✔ Even on safe websites, remain cautious and practice good security habits.
+        </p>
+
+        <a href="/" class="btn">Check Another URL</a>
+
+    {% else %}
+        <h2>⚠️ Phishing Website Detected</h2>
+        <p>This URL is unsafe and may attempt to steal sensitive information.</p>
+
+        <ul>
+            <li>❌ Never enter passwords, OTPs, or banking details.</li>
+            <li>🔍 Always examine the URL carefully for spelling or domain errors.</li>
+            <li>🛡️ Use updated antivirus software and secure browsers.</li>
+            <li>📵 Avoid clicking suspicious links from emails or unknown messages.</li>
+            <li>📚 Learn common phishing techniques to recognize threats early.</li>
+            <li>🚨 Report phishing websites to help protect other users.</li>
+        </ul>
+
+        <p class="note">
+            ⚠ Staying alert and informed is your strongest defense against cyber attacks.
+        </p>
+
+        <a href="/" class="btn">Check Another URL</a>
+    {% endif %}
+
+</div>
+
+</body>
+</html>
