@@ -6,7 +6,7 @@ from feature_extraction import extract_features
 app = Flask(__name__)
 
 # Load model
-model = pickle.load(open("/phishing_model.pkl", "rb"))
+model = pickle.load(open("phishing_model.pkl", "rb"))
 
 # MySQL connection
 db = mysql.connector.connect(
@@ -51,6 +51,7 @@ import os
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
     app.run(host="0.0.0.0", port=port)
+
 
 
 
