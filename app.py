@@ -46,8 +46,7 @@ def index():
 def result():
     status = request.args.get("status")
     return render_template("result.html", status=status)
-
- import os
+import os
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
